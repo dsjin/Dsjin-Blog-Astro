@@ -18,7 +18,7 @@ const { info } = defineProps<{info: Post}>()
             :key="index"
             class="mt-1"
           >
-            {{ tag.name }}
+            {{ tag }}
           </badge>
         </div>
         <div class="main-content mt-1">
@@ -34,12 +34,12 @@ const { info } = defineProps<{info: Post}>()
         <div class="_flex author">
           <div class="img">
             <template v-if="info.author.profileImage">
-              <g-image :src="info.author.profileImage" />
+              <img :src="info.author.profileImage" />
             </template>
           </div>
           <div class="_flex _column">
             <p class="cm">{{ info.author.name }}</p>
-            <p class="cm date">{{ info.datetime }}</p>
+            <p class="cm date">{{ info.createdDate }}</p>
           </div>
         </div>
       </div>
@@ -49,7 +49,6 @@ const { info } = defineProps<{info: Post}>()
 
 <style lang="scss">
   .article-card {
-    // width: calc(33.33% - 1em);
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 1em;
@@ -87,7 +86,7 @@ const { info } = defineProps<{info: Post}>()
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
+        line-clamp: 3;
         line-height: 1.6em;
         max-height: calc(1.6em * 3);
         min-height: calc(1.6em * 3);

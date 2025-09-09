@@ -1,16 +1,12 @@
 export type Post = {
   coverImage?: string
-  tags: Tag[]
+  tags: string[]
   slug: string
   title: string
   description: string
   author: Author
-  datetime: number
+  createdDate: string
   featured: boolean
-}
-
-export type Tag = {
-  name: string
 }
 
 export type Author = {

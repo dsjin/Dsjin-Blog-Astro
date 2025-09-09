@@ -1,5 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro"
+import Footer from "../components/Footer.astro"
+import '../styles/global.scss';
 ---
 
 <!doctype html>
@@ -14,6 +16,7 @@ import Navbar from "../components/Navbar.astro"
 	<body>
 		<Navbar title="DSJIN" />
 		<slot />
+		<Footer />
 	</body>
 </html>
 

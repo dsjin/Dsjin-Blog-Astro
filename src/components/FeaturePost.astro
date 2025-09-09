@@ -1,0 +1,14 @@
+---
+import { undefined } from 'astro:schema'
+import type { Post } from '../assets/types/posts'
+import ArticleCard from './ArticleCard.vue'
+interface Props {
+  posts: Post[]
+}
+const { posts } = Astro.props
+const post = posts.sort((value1: Post, value2: Post) => value2.datetime - value1.datetime).find((value: Post) => value.featured)
+---
+
+{
+  post ? <ArticleCard info={post} /> : undefined
+}

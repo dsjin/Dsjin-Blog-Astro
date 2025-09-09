@@ -1,15 +1,19 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import FeaturePost from '../components/FeaturePost.astro';
 import Layout from '../layouts/Layout.astro';
+
+// const posts: Post[] = Object.values(import.meta.glob('./posts/*.md', { eager: true })).map((value: any): Post => {
+// 	return {
+
+// 	}
+// })
+
+// console.log(posts[0].frommatter)
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<div
-		style="height: 100vh;weight: 100%"
-	>
-	</div>
-	<!-- <Welcome /> -->
+	<!-- <FeaturePost posts={posts}/> -->
 </Layout>

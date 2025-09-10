@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Post } from '../assets/types/posts'
-import Badge from './Badge.vue';
+import Badge from './Badge.vue'
 const { info } = defineProps<{info: Post}>()
 </script>
 
@@ -8,14 +8,16 @@ const { info } = defineProps<{info: Post}>()
   <div class="_flex feature-card">
     <div class="_flex _column _justify_content_around info-section">
       <div
-        v-for="(tag, index) in info.tags"
-        :key="index"
-        class="_flex _wrap badge-container"
-      >
-        <Badge class="mt-1">
-          {{ tag }}
-        </Badge>
-      </div>
+          class="_flex _wrap badge-container"
+        >
+          <Badge
+            v-for="(tag, index) in info.tags"
+            :key="index"
+            class="mt-1"
+          >
+            {{ tag }}
+          </Badge>
+        </div>
       <div class="mt-2">
         <h1 class="title">
           <a :href="`/post/${info.slug}`">

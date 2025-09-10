@@ -1,14 +1,11 @@
 <script setup lang="ts">
 const {
-  color,
-  dark
-} = withDefaults(defineProps<{
-  color: string,
-  dark: boolean
-}>(), {
-  color: 'white',
-  dark: false
-})
+  color = 'white',
+  dark = false
+} = defineProps<{
+  color?: string,
+  dark?: boolean
+}>()
 </script>
 
 

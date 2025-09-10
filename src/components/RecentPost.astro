@@ -1,0 +1,16 @@
+---
+import type { Post } from '../assets/types/posts'
+import ArticleCard from './ArticleCard.vue'
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const posts = (await getCollection('blog')).map((value): Post => {
+	return {
+		...value.data,
+		slug: value.slug
+	}
+}).slice(0, 6)
+---
+
+{
+  posts.map((value) => <ArticleCard info={value}/>)
+}

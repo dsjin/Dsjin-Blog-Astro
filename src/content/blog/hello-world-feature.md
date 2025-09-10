@@ -6,7 +6,7 @@ author: {
 }
 featured: true
 createdDate: '2025/09/09'
-tags: ['new']
+tags: ['new', 'test']
 ---
 
 Here is my _great_ feature post!

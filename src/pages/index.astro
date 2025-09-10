@@ -1,17 +1,7 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import FeaturePost from '../components/FeaturePost.astro';
+import RecentPost from '../components/RecentPost.astro';
 import Layout from '../layouts/Layout.astro';
-import type { Post } from '../assets/types/posts'
-
-import { getCollection } from 'astro:content';
-
-const featuredPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.featured)).map((value): Post => {
-	return {
-		...value.data,
-		slug: value.slug
-	}
-})
 
 // const posts: Post[] = Object.values(import.meta.glob('./posts/*.md', { eager: true })).map((value: any): Post => {
 // 	return {
@@ -33,7 +23,7 @@ const featuredPosts = (await getCollection('blog', ({ data }: CollectionEntry<'b
 		</div>
 	</div>
 	<div class="container">
-		<FeaturePost posts={featuredPosts}/>
+		<FeaturePost />
 		<div
         class="latest_title _flex _row _justify_content_between _align_items_center"
       >
@@ -46,6 +36,7 @@ const featuredPosts = (await getCollection('blog', ({ data }: CollectionEntry<'b
         </a>
       </div>
       <div class="_flex _row _wrap _justify_content_between">
+				<RecentPost />
       </div>
     </div>
 	</div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Post } from '../assets/types/posts'
+import Badge from './Badge.vue'
 const { info } = defineProps<{info: Post}>()
 </script>
 
@@ -7,19 +8,19 @@ const { info } = defineProps<{info: Post}>()
   <div class="article-container _flex _column _wrap">
     <div class="article-card _flex _column">
       <div class="img-section">
-        <g-image :src="info.coverImage ? info.coverImage : '/default.png'" />
+        <img :src="info.coverImage ? info.coverImage : '/default.png'" />
       </div>
       <div class="info-section _flex _column">
         <div
           class="_flex _wrap badge-container"
         >
-          <badge
+          <Badge
             v-for="(tag, index) in info.tags"
             :key="index"
             class="mt-1"
           >
             {{ tag }}
-          </badge>
+          </Badge>
         </div>
         <div class="main-content mt-1">
           <h1 class="title">

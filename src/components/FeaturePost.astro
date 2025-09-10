@@ -1,0 +1,18 @@
+---
+import type { Post } from '../assets/types/posts'
+import FeatureCard from './FeatureCard.vue'
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const featuredPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.featured)).map((value): Post => {
+	return {
+		...value.data,
+		slug: value.slug
+	}
+})
+
+const post = featuredPosts[0]
+---
+
+{
+  post ? <FeatureCard info={post} /> : undefined
+}

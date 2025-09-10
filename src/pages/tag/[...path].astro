@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+const { path } = Astro.params
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog')
+  const allTags = [
+    ...new Set(blogPosts.flatMap(post => post.data.tags))
+  ]
+  const allSlugs: any[] = [
+    {params: { path: undefined }}
+  ]
+  allTags.forEach((tag: string) => {
+    const targetPosts = blogPosts.filter((value) => value.data.tags.includes(tag))
+    const numberOfPosts = Math.ceil(targetPosts.length / 5)
+    Array.from({ length: numberOfPosts }, (_, index) => index + 1).forEach((page: number) => {
+      allSlugs.push({
+        params: { path: `${tag}/${page}` }
+      })
+    })
+  })
+  return allSlugs
+}
+ 
+---
+
+<Layout>
+  <h1>{path}</h1>
+</Layout>

@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../layouts/Layout.astro"
+const blogPosts = await getCollection('blog')
+const allTags = [
+  ...new Set(blogPosts.flatMap(post => post.data.tags))
+]
+---
+
+<Layout>
+  <div class="container">
+    <h1>All Tags</h1>
+    <ul>
+      {
+        allTags.map((value: string) => (
+          <li>
+            <a href={`/tag/${value}`}>
+              { value }
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>
+

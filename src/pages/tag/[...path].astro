@@ -2,6 +2,11 @@
 import { getCollection } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
 const { path } = Astro.params
+const [tag, page = '1'] = (path as string).split('/')
+const start = (parseInt(page)-1)
+const end = start + 5
+const blogPosts = await getCollection('blog')
+const targetPosts = blogPosts.filter((value) => value.data.tags.includes(tag)).slice(start, end)
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog')
   const allTags = [
@@ -13,6 +18,9 @@ export async function getStaticPaths() {
   allTags.forEach((tag: string) => {
     const targetPosts = blogPosts.filter((value) => value.data.tags.includes(tag))
     const numberOfPosts = Math.ceil(targetPosts.length / 5)
+    allSlugs.push({
+      params: { path: `${tag}` }
+    })
     Array.from({ length: numberOfPosts }, (_, index) => index + 1).forEach((page: number) => {
       allSlugs.push({
         params: { path: `${tag}/${page}` }

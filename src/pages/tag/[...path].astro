@@ -3,6 +3,8 @@ import { getCollection } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
 import PostList from "../../components/PostList.astro"
 import Pager from "../../components/Pager.vue"
+import type { CollectionEntry } from "astro:content"
+import type { Post } from "../../assets/types/posts"
 const { path } = Astro.params
 const [tag, page = '1'] = (path as string).split('/')
 

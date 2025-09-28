@@ -6,7 +6,7 @@ import { ref } from 'vue';
       link: '/',
     },
     tag: {
-      title: 'Tag',
+      title: 'Tags',
       link: '/tags',
     },
   })

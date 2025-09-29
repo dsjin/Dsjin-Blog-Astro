@@ -5,6 +5,7 @@ import PostList from "../../components/PostList.astro"
 import Pager from "../../components/Pager.vue"
 import type { CollectionEntry } from "astro:content"
 import type { Post } from "../../assets/types/posts"
+import { SEO } from "astro-seo";
 const { path } = Astro.params
 const [tag, page = '1'] = (path as string).split('/')
 
@@ -42,6 +43,10 @@ export async function getStaticPaths() {
 ---
 
 <Layout>
+  <SEO
+    slot="header"
+    title={`${tag} - DSJIN BLOG`}
+  />
   <div class="container">
     <h1>{tag.toUpperCase()}</h1>
     <div class="_flex _column">

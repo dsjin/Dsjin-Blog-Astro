@@ -2,6 +2,7 @@
 import FeaturePost from '../components/FeaturePost.astro';
 import RecentPost from '../components/RecentPost.astro';
 import Layout from '../layouts/Layout.astro';
+import { SEO } from "astro-seo";
 
 // const posts: Post[] = Object.values(import.meta.glob('./posts/*.md', { eager: true })).map((value: any): Post => {
 // 	return {
@@ -16,6 +17,10 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
+	<SEO
+    slot="header"
+    title="DSJIN BLOG"
+  />
 	<div class="c-header">
 		<div class="container">
 			<h1>Blog</h1>

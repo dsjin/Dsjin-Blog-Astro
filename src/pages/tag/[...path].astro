@@ -8,16 +8,15 @@ import type { Post } from "../../assets/types/posts"
 const { path } = Astro.params
 const [tag, page = '1'] = (path as string).split('/')
 
-const totalRargetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.tags.includes(tag))).map((value): Post => {
+const totalTargetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.tags.includes(tag))).map((value): Post => {
 	return {
 		...value.data,
-		slug: value.slug
+		slug: value.slug,
+		coverImage: value.data.coverImage?.src
 	}
 })
 
-const start = (parseInt(page)-1)
-const end = start + 5
-const totalPages = Math.ceil(totalRargetPosts.length / 5)
+const totalPages = Math.ceil(totalTargetPosts.length / 5)
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog')

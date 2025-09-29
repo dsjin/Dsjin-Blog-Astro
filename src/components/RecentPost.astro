@@ -6,7 +6,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 const posts = (await getCollection('blog')).map((value): Post => {
 	return {
 		...value.data,
-		slug: value.slug
+		slug: value.slug,
+		coverImage: value.data.coverImage?.src
 	}
 }).slice(0, 6)
 ---

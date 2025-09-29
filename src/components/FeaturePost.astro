@@ -6,7 +6,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 const featuredPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.featured)).map((value): Post => {
 	return {
 		...value.data,
-		slug: value.slug
+		slug: value.slug,
+		coverImage: value.data.coverImage?.src
 	}
 })
 

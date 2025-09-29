@@ -11,11 +11,10 @@ const end = start + 5
 const targetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.tags.includes(tag))).map((value): Post => {
 	return {
 		...value.data,
-		slug: value.slug
+		slug: value.slug,
+		coverImage: value.data.coverImage?.src
 	}
 }).slice(start, end)
-
-console.log(tag, page, targetPosts)
 
 ---
 

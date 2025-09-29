@@ -3,18 +3,34 @@ import type { Post } from '../assets/types/posts'
 import ArticleList from '../components/ArticleList.vue'
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-const { tag, page } = Astro.props
+const { tag, page, direction } = Astro.props
 
-const start = (parseInt(page)-1)
+const start = (parseInt(page)-1) * 5
 const end = start + 5
 
-const targetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.tags.includes(tag))).map((value): Post => {
+let targetPosts = []
+
+if (tag) {
+	targetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.tags.includes(tag)))
+} else {
+	targetPosts = await getCollection('blog')
+}
+
+targetPosts = targetPosts.map((value): Post => {
 	return {
 		...value.data,
 		slug: value.slug,
 		coverImage: value.data.coverImage?.src
 	}
+}).sort((a: Post, b: Post) => {
+	if (direction === 'DESC') {
+		return new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime()
+	} else {
+		return new Date(a.createdDate).getTime() - new Date(b.createdDate).getTime()
+	}
 }).slice(start, end)
+
+console.log(targetPosts)
 
 ---
 

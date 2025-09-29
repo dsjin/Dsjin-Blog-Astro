@@ -17,7 +17,7 @@ const { info } = defineProps<{info: Post}>()
           <Badge
             v-for="(tag, index) in info.tags"
             :key="index"
-            class="mt-1"
+            class="mb-1"
           >
             {{ tag }}
           </Badge>

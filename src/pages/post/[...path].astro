@@ -96,6 +96,17 @@ export async function getStaticPaths() {
 </Layout>
 
 <style>
+@keyframes updown {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
 .post-header {
   position: relative;
   z-index: 20;
@@ -170,6 +181,47 @@ export async function getStaticPaths() {
   }
   .astro-code {
     padding: 1.5em;
+  }
+}
+@media (max-width: 768px) {
+  .post-content {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+  .post-header {
+    height: calc(100vh - 4.8rem);
+    padding: 10px;
+    padding-bottom: 20px;
+    #expand-arrow {
+      display: flex;
+      img {
+        transition: ease-in-out;
+        animation: updown 2s infinite;
+      }
+    }
+    .container {
+      margin: 0;
+    }
+    .post-header-inner {
+      h1 {
+        font-size: 2em;
+      }
+      .badge-container {
+        margin-bottom: 1.5rem;
+      }
+      .author {
+        p {
+          font-size: 1em;
+        }
+        .img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
   }
 }
 </style>

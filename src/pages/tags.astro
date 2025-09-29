@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content"
 import Layout from "../layouts/Layout.astro"
+import { SEO } from "astro-seo";
 const blogPosts = await getCollection('blog')
 const allTags = [
   ...new Set(blogPosts.flatMap(post => post.data.tags))
@@ -8,6 +9,10 @@ const allTags = [
 ---
 
 <Layout>
+  <SEO
+    slot="header"
+    title="Tags - DSJIN BLOG"
+  />
   <div class="container">
     <h1>All Tags</h1>
     <ul>

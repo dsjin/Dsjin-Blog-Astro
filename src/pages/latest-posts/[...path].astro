@@ -6,6 +6,7 @@ import Pager from "../../components/Pager.vue"
 import PostList from "../../components/PostList.astro"
 import Layout from "../../layouts/Layout.astro"
 import { undefined } from "astro:schema"
+import { SEO } from "astro-seo";
 
 const { path = '' } = Astro.params
 const [page = '1'] = (path as string).split('')
@@ -37,6 +38,10 @@ export async function getStaticPaths() {
 ---
 
 <Layout>
+  <SEO
+    slot="header"
+    title="Latest Posts - DSJIN BLOG"
+  />
   <div class="container">
     <h1>Latest Posts</h1>
     <div class="_flex _column">

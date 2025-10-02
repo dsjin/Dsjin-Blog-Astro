@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Post } from '../assets/types/posts'
+import utils from '../assets/utils';
 import Badge from './Badge.vue'
 const { info } = defineProps<{info: Post}>()
 </script>
@@ -40,7 +41,7 @@ const { info } = defineProps<{info: Post}>()
           </div>
           <div class="_flex _column">
             <p class="cm">{{ info.author.name }}</p>
-            <p class="cm date">{{ info.createdDate }}</p>
+            <p class="cm date">{{ utils.formatDatetime(info.createdDate) }}</p>
           </div>
         </div>
       </div>

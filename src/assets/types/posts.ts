@@ -5,7 +5,7 @@ export type Post = {
   title: string
   description: string
   author: Author
-  createdDate: string
+  createdDate: Date
   featured: boolean
 }
 

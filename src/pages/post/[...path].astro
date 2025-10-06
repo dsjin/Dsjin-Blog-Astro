@@ -7,11 +7,14 @@ import Badge from "../../components/Badge.vue";
 import NavbarFixed from "../../components/NavbarFixed.vue";
 import { SEO } from "astro-seo";
 import utils from "../../assets/utils";
+import Disqus from "../../components/Disqus.astro";
 
 const { path } = Astro.params
 const blogPost = await getEntry('blog', path)
 const { Content } = await blogPost!.render()
 const { origin, href } = Astro.url
+
+const DISQUS_HOST = import.meta.env.DISQUS_HOST
 
 export async function getStaticPaths() {
   const allSlugs: any[] = []
@@ -107,6 +110,7 @@ export async function getStaticPaths() {
         client:only
       />
     </div>
+    <Disqus disqusHost={DISQUS_HOST} />
   </div>
 </Layout>
 

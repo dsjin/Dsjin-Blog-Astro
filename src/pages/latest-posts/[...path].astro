@@ -1,11 +1,9 @@
 ---
-import type { CollectionEntry } from "astro:content"
 import { getCollection } from "astro:content"
 import type { Post } from "../../assets/types/posts"
 import Pager from "../../components/Pager.vue"
 import PostList from "../../components/PostList.astro"
 import Layout from "../../layouts/Layout.astro"
-import { undefined } from "astro:schema"
 import { SEO } from "astro-seo";
 
 const { path = '' } = Astro.params

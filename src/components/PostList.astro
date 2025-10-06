@@ -20,7 +20,11 @@ targetPosts = targetPosts.map((value): Post => {
 	return {
 		...value.data,
 		slug: value.slug,
-		coverImage: value.data.coverImage?.src
+		coverImage: value.data.coverImage?.src,
+		author: {
+			...value.data.author,
+			profileImage: value.data.author.profileImage?.src
+		}
 	}
 }).sort((a: Post, b: Post) => {
 	if (direction === 'DESC') {

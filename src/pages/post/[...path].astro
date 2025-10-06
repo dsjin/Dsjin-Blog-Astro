@@ -67,7 +67,7 @@ export async function getStaticPaths() {
         <div class="_flex author">
           <div class="img">
             {
-              blogPost?.data.author.profileImage ? <img src={blogPost?.data.author.profileImage} /> : undefined
+              blogPost?.data.author.profileImage ? <img src={blogPost?.data.author.profileImage.src} /> : undefined
             }
           </div>
           <div class="_flex _column">

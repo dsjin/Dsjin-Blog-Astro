@@ -105,8 +105,9 @@ export default defineConfig({
         ],
         ui: {
           filename: {
-            slugify: () => 'index',
-            readonly: true
+            slugify: (values) => {
+              return `${(values.title ?? '').toLowerCase().replace(/ /g, '-')}`
+            },
           },
           beforeSubmit: async ({
             form,

@@ -2,7 +2,7 @@
 const { disqusHost } = Astro.props
 ---
 
-<div id="disqus_thread" style="min-height: 200px"></div>
+<div id="disqus_thread" style="min-height: 200px; width: 100%"></div>
 
 <script is:inline define:vars={{disqusHost}}>
   if (!window.DisqusWidget) {

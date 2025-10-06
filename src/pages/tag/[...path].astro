@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import PostList from "../../components/PostList.astro"
+import Pager from "../../components/Pager.vue"
+import type { CollectionEntry } from "astro:content"
+import type { Post } from "../../assets/types/posts"
+import { SEO } from "astro-seo";
+const { path } = Astro.params
+const [tag, page = '1'] = (path as string).split('/')
+
+const totalTargetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.tags.includes(tag))).map((value): Post => {
+	return {
+		...value.data,
+		slug: value.slug,
+		coverImage: value.data.coverImage?.src
+	}
+})
+
+const totalPages = Math.ceil(totalTargetPosts.length / 5)
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog')
+  const allTags = [
+    ...new Set(blogPosts.flatMap(post => post.data.tags))
+  ]
+  const allSlugs: any[] = []
+  allTags.forEach((tag: string) => {
+    const targetPosts = blogPosts.filter((value) => value.data.tags.includes(tag))
+    const numberOfPosts = Math.ceil(targetPosts.length / 5)
+    allSlugs.push({
+      params: { path: `${tag}` }
+    })
+    Array.from({ length: numberOfPosts }, (_, index) => index + 1).forEach((page: number) => {
+      allSlugs.push({
+        params: { path: `${tag}/${page}` }
+      })
+    })
+  })
+  return allSlugs
+}
+ 
+---
+
+<Layout>
+  <SEO
+    slot="header"
+    title={`${tag} - DSJIN BLOG`}
+  />
+  <div class="container">
+    <h1>{tag.toUpperCase()}</h1>
+    <div class="_flex _column">
+      <PostList tag={tag} page={page} />
+    </div>
+    <Pager
+      totalPages={totalPages}
+      currentPage={parseInt(page)}
+      slug={`/tag/${tag}/`}
+    />
+  </div>
+</Layout>

@@ -1,0 +1,243 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import ShareButton from '../../components/ShareButton.vue'
+import { undefined } from "astro:schema";
+import Badge from "../../components/Badge.vue";
+import NavbarFixed from "../../components/NavbarFixed.vue";
+import { SEO } from "astro-seo";
+import utils from "../../assets/utils";
+
+const { path } = Astro.params
+const blogPost = await getEntry('blog', path)
+const { Content } = await blogPost!.render()
+const { origin, href } = Astro.url
+
+export async function getStaticPaths() {
+  const allSlugs: any[] = []
+  const blogPosts = await getCollection('blog')
+  blogPosts.forEach((post) => {
+    allSlugs.push({
+      params: { path: post.slug }
+    })
+  })
+  return allSlugs
+}
+
+---
+
+<Layout>
+  <SEO
+    slot="header"
+    title={`${blogPost?.data.title} - DSJIN BLOG`}
+    description={blogPost?.data.description}
+    openGraph={{
+      basic: {
+        title: blogPost?.data.title ?? 'DSJIN BLOG',
+        type: 'article',
+        image: blogPost?.data.coverImage ? blogPost?.data.coverImage.src : `${origin}/default.png`,
+        url: href
+      }
+    }}
+  />
+  <NavbarFixed title={blogPost?.data.title ?? ''} client:only />
+  <div
+    class="post-header"
+    style={`background-image:url(${
+      blogPost?.data.coverImage ? blogPost?.data.coverImage.src : '/bg-white.svg'
+    })`}
+  >
+    <div class="container">
+      <div class="post-header-inner _flex _column _justify_content_end">
+        <h1>
+          { blogPost?.data.title }
+        </h1>
+        <div class="_flex badge-container">
+          {
+            blogPost?.data.tags.map((value) => {
+              return <Badge
+                v-for="(tag, index) in info.tags"
+                class="mr-1"
+              >
+                { value }
+              </Badge>
+            })
+          }
+        </div>
+        <div class="_flex author">
+          <div class="img">
+            {
+              blogPost?.data.author.profileImage ? <img src={blogPost?.data.author.profileImage} /> : undefined
+            }
+          </div>
+          <div class="_flex _column">
+            <p class="cm">{ blogPost?.data.author.name }</p>
+            <p class="cm date">{ utils.formatDatetime(blogPost?.data.createdDate) }</p>
+          </div>
+        </div>
+        <div id="expand-arrow" class="_flex _justify_content_center mt-1">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAA20lEQVRoge3XOQ7CMBRF0WyCCPa/E6iYGlywnEuBXWChj5N4FO9KkVLE9j9ylWlSSimllFLqbwOOwA2YW88SB8zAHTilfHzhnesJ4xHOz3ZOWbADHn7BEzhUmHPpTPu1C5thViOMDapjNiOMjaphsiGMDYtjsiOMjYthiiGMA7JjiiOMg7JhqiGMAzdjqiOMg1djmiGMARZjmiOMQZIx3SCMgX5iukOElmC6RYRSMN0jQhZmGEToG2Y4RIjPvzkXvXfz15lUdAtj3UScv5mrf8a6CaWUUkoppbrtBWnjz9Xa11cNAAAAAElFTkSuQmCC"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="post-content container">
+    <Content/>
+  </div>
+  <div class="container _flex _column _align_items_center">
+    <span
+      class="mb-1"
+    >
+      Share on :
+    </span>
+    <div class="_flex">
+      <ShareButton
+        platform="facebook"
+        class="mr-1"
+        title={blogPost?.data.title}
+        description={blogPost?.data.description}
+        client:only
+      />
+      <ShareButton
+        platform="twitter"
+        title={blogPost?.data.title}
+        description={blogPost?.data.description}
+        client:only
+      />
+    </div>
+  </div>
+</Layout>
+
+<style>
+@keyframes updown {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+.post-header {
+  position: relative;
+  z-index: 20;
+  height: 30em;
+  background-color: rgba(89, 113, 117, 0.6);
+  color: white;
+  padding-bottom: 2em;
+  background-blend-mode: multiply;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  #expand-arrow {
+    display: none;
+  }
+  .container {
+    height: 100%;
+  }
+  .badge-container {
+    margin-bottom: 1.5rem;
+  }
+  .post-header-inner {
+    height: inherit;
+    .author {
+      .img {
+        width: 50px;
+        height: 50px;
+        background-color: antiquewhite;
+        border-radius: 60px;
+        margin-right: 0.5em;
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.post-content {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  p:has(img) {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid rgba(17, 45, 50, .4);
+    border-radius: 10px;
+    overflow: hidden;
+    em {
+      display: inline-block;
+      margin-top: .5em;
+      margin-bottom: .5em;
+    }
+  }
+  table {
+    width: 100%;
+    td, th {
+      border: 1px solid #ddd;
+      padding: 8px
+    }
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #112d32;
+      color: #fff
+    }
+  }
+  .astro-code {
+    padding: 1.5em;
+  }
+}
+@media (max-width: 768px) {
+  .post-content {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+  .post-header {
+    height: calc(100vh - 4.8rem);
+    padding: 10px;
+    padding-bottom: 20px;
+    #expand-arrow {
+      display: flex;
+      img {
+        transition: ease-in-out;
+        animation: updown 2s infinite;
+      }
+    }
+    .container {
+      margin: 0;
+    }
+    .post-header-inner {
+      h1 {
+        font-size: 2em;
+      }
+      .badge-container {
+        margin-bottom: 1.5rem;
+      }
+      .author {
+        p {
+          font-size: 1em;
+        }
+        .img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+</style>

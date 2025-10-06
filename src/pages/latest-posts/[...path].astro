@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from "astro:content"
+import { getCollection } from "astro:content"
+import type { Post } from "../../assets/types/posts"
+import Pager from "../../components/Pager.vue"
+import PostList from "../../components/PostList.astro"
+import Layout from "../../layouts/Layout.astro"
+import { undefined } from "astro:schema"
+import { SEO } from "astro-seo";
+
+const { path = '' } = Astro.params
+const [page = '1'] = (path as string).split('')
+
+const blogPosts = (await getCollection('blog')).map((value): Post => {
+	return {
+		...value.data,
+		slug: value.slug,
+		coverImage: value.data.coverImage?.src
+	}
+})
+
+const totalPages = Math.ceil(blogPosts.length / 5)
+
+export async function getStaticPaths() {
+  const allSlugs: any[] = []
+  const blogPosts = await getCollection('blog')
+  const numberOfPosts = Math.ceil(blogPosts.length / 5)
+  allSlugs.push({
+    params: { path: undefined }
+  })
+  Array.from({ length: numberOfPosts }, (_, index) => index + 1).forEach((page: number) => {
+    allSlugs.push({
+      params: { path: `${page}` }
+    })
+  })
+  return allSlugs
+}
+---
+
+<Layout>
+  <SEO
+    slot="header"
+    title="Latest Posts - DSJIN BLOG"
+  />
+  <div class="container">
+    <h1>Latest Posts</h1>
+    <div class="_flex _column">
+      <PostList page={page} direction="DESC" />
+    </div>
+    <Pager
+      totalPages={totalPages}
+      currentPage={parseInt(page)}
+      slug={`/latest-posts/`}
+    />
+  </div>
+</Layout>
+
+

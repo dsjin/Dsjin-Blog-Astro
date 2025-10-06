@@ -12,7 +12,7 @@ const blogCollection = defineCollection({
       profileImage: z.string().optional(),
       name: z.string()
     }),
-    createdDate: z.string()
+    createdDate: z.date()
   })
 })
 

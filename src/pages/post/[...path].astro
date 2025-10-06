@@ -7,6 +7,7 @@ import { undefined } from "astro:schema";
 import Badge from "../../components/Badge.vue";
 import NavbarFixed from "../../components/NavbarFixed.vue";
 import { SEO } from "astro-seo";
+import utils from "../../assets/utils";
 
 const { path } = Astro.params
 const blogPost = await getEntry('blog', path)
@@ -72,7 +73,7 @@ export async function getStaticPaths() {
           </div>
           <div class="_flex _column">
             <p class="cm">{ blogPost?.data.author.name }</p>
-            <p class="cm date">{ blogPost?.data.createdDate }</p>
+            <p class="cm date">{ utils.formatDatetime(blogPost?.data.createdDate) }</p>
           </div>
         </div>
         <div id="expand-arrow" class="_flex _justify_content_center mt-1">

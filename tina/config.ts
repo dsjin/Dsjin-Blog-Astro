@@ -21,8 +21,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "images",
-      publicFolder: "public"
+      mediaRoot: "public/images",
+      publicFolder: "/"
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/r/content-modelling-collections/
@@ -36,7 +36,7 @@ export default defineConfig({
         defaultItem: () => {
           return {
             author: {
-              profileImage: '/public/default.png',
+              profileImage: '/public/images/default.png',
               name: 'Thatchakon Jom-ud'
             },
             featured: false
@@ -64,7 +64,10 @@ export default defineConfig({
           {
             type: 'image',
             name: 'coverImage',
-            label: 'Cover Image'
+            label: 'Cover Image',
+            ui: {
+              
+            }
           },
           {
             type: 'boolean',

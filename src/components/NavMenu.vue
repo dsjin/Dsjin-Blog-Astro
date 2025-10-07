@@ -9,6 +9,10 @@ import { ref } from 'vue';
       title: 'Tags',
       link: '/tags',
     },
+    portfolio: {
+      title: 'Portfolio',
+      link: 'https://www.dsjin.co'
+    }
   })
 </script>
 

@@ -50,7 +50,6 @@ If you are a foreigner who has to live in Japan for the long term, I suggest buy
 If you are a tourist who wants to travel in Japan, I suggest you add your credit card to google pay and use your card with contactless payment. If a store accepts contactless payment such as Visa payWave and Mastercard Tap & Go, it might accept NFC payment.
 
 ![Mobile Payment using Payment Terminal. Picture taken bij Jonas Leupe (www.brandstof.studio) for In The Pocket (www.inthepocket.com)](https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?crop=entropy\&cs=tinysrgb\&fit=max\&fm=jpg\&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG5mYyUyMHBheW1lbnR8ZW58MHx8fHwxNjIwOTA0OTkw\&ixlib=rb-1.2.1\&q=80\&w=2000)
-
 *Photo by [Jonas Leupe](https://unsplash.com/@jonasleupe?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) / [Unsplash](https://unsplash.com?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit)*
 
 ## QR Code payment
@@ -58,7 +57,6 @@ If you are a tourist who wants to travel in Japan, I suggest you add your credit
 This method works for every mobile device, because it requires only a display panel to display the QR or Barcode for payment. But if you are a tourist, this method is impossible or hard to use because the registration for this service requires a Japanese phone number or resident card, etc.
 
 ![Sending money with the Alipay app from Alibaba](https://images.unsplash.com/photo-1595079676601-f1adf5be5dee?crop=entropy\&cs=tinysrgb\&fit=max\&fm=jpg\&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fHFyY29kZSUyMHBheW1lbnR8ZW58MHx8fHwxNjIwOTA0OTQx\&ixlib=rb-1.2.1\&q=80\&w=2000)
-
 *Photo by [Markus Winkler](https://unsplash.com/@markuswinkler?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) / [Unsplash](https://unsplash.com?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit)*
 
 # Conclusion

@@ -13,7 +13,7 @@ const featuredPosts = (await getCollection('blog', ({ data }: CollectionEntry<'b
 			profileImage: value.data.author.profileImage?.src
 		}
 	}
-})
+}).sort((a, b) => new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime())
 
 const post = featuredPosts[0]
 ---

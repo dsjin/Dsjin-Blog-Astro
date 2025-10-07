@@ -19,7 +19,7 @@ const allTags = [
       {
         allTags.map((value: string) => (
           <li>
-            <a href={`/tag/${value}`}>
+            <a href={`/tag/${value.toLowerCase().replace(/ /g, '-')}`}>
               { value }
             </a>
           </li>

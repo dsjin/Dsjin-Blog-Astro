@@ -11,7 +11,15 @@ const end = start + 5
 let targetPosts = []
 
 if (tag) {
-	targetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.tags.includes(tag)))
+	targetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => {
+		let included = false
+		data.tags.forEach((value: string) => {
+			if (value.toLowerCase().replace(/ /g, '-') === tag) {
+				included = true
+			}
+		})
+		return included
+	}))
 } else {
 	targetPosts = await getCollection('blog')
 }

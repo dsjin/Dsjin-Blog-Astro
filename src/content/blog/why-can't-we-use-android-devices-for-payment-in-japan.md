@@ -51,7 +51,7 @@ If you are a tourist who wants to travel in Japan, I suggest you add your credit
 
 ![Mobile Payment using Payment Terminal. Picture taken bij Jonas Leupe (www.brandstof.studio) for In The Pocket (www.inthepocket.com)](https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?crop=entropy\&cs=tinysrgb\&fit=max\&fm=jpg\&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG5mYyUyMHBheW1lbnR8ZW58MHx8fHwxNjIwOTA0OTkw\&ixlib=rb-1.2.1\&q=80\&w=2000)
 
-* Photo by [Jonas Leupe](https://unsplash.com/@jonasleupe?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) / [Unsplash](https://unsplash.com?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) \*
+*Photo by [Jonas Leupe](https://unsplash.com/@jonasleupe?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) / [Unsplash](https://unsplash.com?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit)*
 
 ## QR Code payment
 
@@ -59,7 +59,7 @@ This method works for every mobile device, because it requires only a display pa
 
 ![Sending money with the Alipay app from Alibaba](https://images.unsplash.com/photo-1595079676601-f1adf5be5dee?crop=entropy\&cs=tinysrgb\&fit=max\&fm=jpg\&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fHFyY29kZSUyMHBheW1lbnR8ZW58MHx8fHwxNjIwOTA0OTQx\&ixlib=rb-1.2.1\&q=80\&w=2000)
 
-* Photo by [Markus Winkler](https://unsplash.com/@markuswinkler?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) / [Unsplash](https://unsplash.com?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) \*
+*Photo by [Markus Winkler](https://unsplash.com/@markuswinkler?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) / [Unsplash](https://unsplash.com?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit)*
 
 # Conclusion
 

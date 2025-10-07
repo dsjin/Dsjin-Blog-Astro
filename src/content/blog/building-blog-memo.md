@@ -5,7 +5,7 @@ tags:
   - Software Development
 coverImage: /public/images/default.png
 featured: true
-createdDate: 2025-10-06T09:21:33.874Z
+createdDate: 2021-01-29T00:00:00.000Z
 author:
   profileImage: /public/images/8769240.png
   name: Thatchakon Jom-ud
@@ -17,7 +17,7 @@ author:
 
 ***
 
-![Fountain pen and a notebook](https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?crop=entropy\&cs=tinysrgb\&fit=max\&fm=jpg\&ixid=MXwxMTc3M3wwfDF8c2VhcmNofDh8fGJsb2d8ZW58MHx8fA\&ixlib=rb-1.2.1\&q=80\&w=2000)
+![Fountain pen and a notebook](/public/imageshttps://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?crop=entropy\&cs=tinysrgb\&fit=max\&fm=jpg\&ixid=MXwxMTc3M3wwfDF8c2VhcmNofDh8fGJsb2d8ZW58MHx8fA\&ixlib=rb-1.2.1\&q=80\&w=2000)
 *Photo by [Aaron Burden](https://unsplash.com/@aaronburden?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) / [Unsplash](https://unsplash.com?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit)*
 
 # จุดเริ่มต้น
@@ -36,7 +36,7 @@ author:
 
 # การตัดสินใจเลือก Tech Stack และการออกแบบระบบ
 
-![Fountain pen and a notebook](https://images.unsplash.com/photo-1546900703-cf06143d1239?crop=entropy\&cs=tinysrgb\&fit=max\&fm=jpg\&ixid=MXwxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGV8ZW58MHx8fA\&ixlib=rb-1.2.1\&q=80\&w=2000)
+![Fountain pen and a notebook](/public/imageshttps://images.unsplash.com/photo-1546900703-cf06143d1239?crop=entropy\&cs=tinysrgb\&fit=max\&fm=jpg\&ixid=MXwxMTc3M3wwfDF8c2VhcmNofDV8fGNvZGV8ZW58MHx8fA\&ixlib=rb-1.2.1\&q=80\&w=2000)
 *Photo by [Joshua Aragon](https://unsplash.com/@goshua13?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit) / [Unsplash](https://unsplash.com?utm_source=ghost\&utm_medium=referral\&utm_campaign=api-credit)*
 
 จริงๆ ผมตั้งธงไว้ในใจแล้วว่าอยากจะใช้ Ghost เป็น CMS ในการทำเว็บนี้ ด้วยความที่มันเหมาะสำหรับการ Blog มาก เพราะเขาเคลมว่าเป็น CMS ที่ Focus การเขียน Blog เป็นสำคัญ ฉะนั้นหลังบ้านไม่ว่าจะตัวเมนู หรือ editor ก็ดู lean เพื่อให้เราใช้งานได้ง่าย และอีกเหตุผลคือ Ghost เป็นหนึ่งในตัวเลือกในการทำ [JAM Stack](https://jamstack.org/) เป็นอันดับต้นๆ ฉะนั้นสามารถ หา document อ้างอิงต่างๆ ได้ง่ายอีกด้วย ดังนั้นผมจังเลือก Gridsome (ผมเขียน Vue.js ละนะ) + Ghost (CMS Headless)​ เป็น Base tech stack เอาไว้

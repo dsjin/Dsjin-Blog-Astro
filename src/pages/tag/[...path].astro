@@ -9,7 +9,18 @@ import { SEO } from "astro-seo";
 const { path } = Astro.params
 const [tag, page = '1'] = (path as string).split('/')
 
-const totalTargetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => data.tags.includes(tag.toLowerCase().replace(/ /g, '-')))).map((value): Post => {
+let originalTagName = ''
+
+const totalTargetPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => {
+		let included = false
+		data.tags.forEach((value: string) => {
+			if (value.toLowerCase().replace(/ /g, '-') === tag) {
+        originalTagName = value
+				included = true
+			}
+		})
+		return included
+	})).map((value): Post => {
 	return {
 		...value.data,
 		slug: value.slug,
@@ -50,10 +61,10 @@ export async function getStaticPaths() {
 <Layout>
   <SEO
     slot="header"
-    title={`${tag} | DSJIN BLOG`}
+    title={`${originalTagName} | DSJIN BLOG`}
   />
   <div class="container">
-    <h1>{tag.toUpperCase()}</h1>
+    <h1>{originalTagName}</h1>
     <div class="_flex _column">
       <PostList tag={tag} page={page} direction="DESC" />
     </div>

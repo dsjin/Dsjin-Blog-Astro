@@ -11,7 +11,7 @@ const allTags = [
 <Layout>
   <SEO
     slot="header"
-    title="Tags - DSJIN BLOG"
+    title="Tags | DSJIN BLOG"
   />
   <div class="container">
     <h1>All Tags</h1>
@@ -19,7 +19,7 @@ const allTags = [
       {
         allTags.map((value: string) => (
           <li>
-            <a href={`/tag/${value}`}>
+            <a href={`/tag/${value.toLowerCase().replace(/ /g, '-')}`}>
               { value }
             </a>
           </li>

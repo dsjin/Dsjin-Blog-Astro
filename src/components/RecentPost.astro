@@ -13,7 +13,7 @@ const posts = (await getCollection('blog')).map((value): Post => {
 			profileImage: value.data.author.profileImage?.src
 		}
 	}
-}).slice(0, 6)
+}).sort((a, b) => new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime()).slice(0, 6)
 ---
 
 {

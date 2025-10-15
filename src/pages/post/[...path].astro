@@ -38,7 +38,7 @@ export async function getStaticPaths() {
       basic: {
         title: blogPost?.data.title ?? 'DSJIN BLOG',
         type: 'article',
-        image: blogPost?.data.coverImage ? blogPost?.data.coverImage.src : `${origin}/default.png`,
+        image: blogPost?.data.coverImage ? `${origin}${blogPost?.data.coverImage.src}` : `${origin}/default.png`,
         url: href
       },
       article: {
@@ -51,7 +51,7 @@ export async function getStaticPaths() {
       creator: blogPost?.data.author.name,
       title: `${blogPost?.data.title} | DSJIN BLOG`,
       description: blogPost?.data.description,
-      image: blogPost?.data.coverImage ? blogPost?.data.coverImage.src : `${origin}/default.png`
+      image: blogPost?.data.coverImage ? `${origin}${blogPost?.data.coverImage.src}` : `${origin}/default.png`
     }}
   />
   <NavbarFixed title={blogPost?.data.title ?? ''} client:only />

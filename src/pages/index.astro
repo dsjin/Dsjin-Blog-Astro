@@ -3,12 +3,30 @@ import FeaturePost from '../components/FeaturePost.astro';
 import RecentPost from '../components/RecentPost.astro';
 import Layout from '../layouts/Layout.astro';
 import { SEO } from "astro-seo";
+const { origin, href } = Astro.url;
 ---
 
 <Layout>
 	<SEO
     slot="header"
     title="Home | DSJIN BLOG"
+		description="Share more, Learn more!",
+		openGraph={{
+      basic: {
+        title: "Home | DSJIN BLOG",
+        type: 'website',
+        image: `${origin}/default.png`,
+        url: href
+      }
+    }}
+		twitter={{
+      card: 'summary_large_image',
+      site: href,
+      creator: 'Thatchakon Jom-ud',
+      title: "Home | DSJIN BLOG",
+      description: "Share more, Learn more!",
+      image: `${origin}/default.png`
+    }}
   />
 	<div class="c-header">
 		<div class="container">

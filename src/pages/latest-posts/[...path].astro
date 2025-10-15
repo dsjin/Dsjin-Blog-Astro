@@ -8,6 +8,7 @@ import { SEO } from "astro-seo";
 
 const { path = '' } = Astro.params
 const [page = '1'] = (path as string).split('')
+const { origin, href } = Astro.url;
 
 const blogPosts = (await getCollection('blog')).map((value): Post => {
 	return {
@@ -43,6 +44,23 @@ export async function getStaticPaths() {
   <SEO
     slot="header"
     title="Latest Posts | DSJIN BLOG"
+    description="All my latest posts",
+    openGraph={{
+      basic: {
+        title: "Latest Posts | DSJIN BLOG",
+        type: 'website',
+        image: `${origin}/default.png`,
+        url: href
+      }
+    }}
+    twitter={{
+      card: 'summary_large_image',
+      site: href,
+      creator: 'Thatchakon Jom-ud',
+      title: "Latest Posts | DSJIN BLOG",
+      description: "All my latest posts",
+      image: `${origin}/default.png`
+    }}
   />
   <div class="container">
     <h1>Latest Posts</h1>

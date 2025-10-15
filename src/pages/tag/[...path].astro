@@ -8,6 +8,7 @@ import type { Post } from "../../assets/types/posts"
 import { SEO } from "astro-seo";
 const { path } = Astro.params
 const [tag, page = '1'] = (path as string).split('/')
+const { origin, href } = Astro.url
 
 let originalTagName = ''
 
@@ -62,6 +63,23 @@ export async function getStaticPaths() {
   <SEO
     slot="header"
     title={`${originalTagName} | DSJIN BLOG`}
+    description=`My posts in ${originalTagName} tag`,
+    openGraph={{
+      basic: {
+        title: `${originalTagName} | DSJIN BLOG`,
+        type: 'website',
+        image: `${origin}/default.png`,
+        url: href
+      }
+    }}
+		twitter={{
+      card: 'summary_large_image',
+      site: href,
+      creator: 'Thatchakon Jom-ud',
+      title: `${originalTagName} | DSJIN BLOG`,
+      description: `My posts in ${originalTagName} tag`,
+      image: `${origin}/default.png`
+    }}
   />
   <div class="container">
     <h1>{originalTagName}</h1>

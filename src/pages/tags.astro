@@ -6,12 +6,30 @@ const blogPosts = await getCollection('blog')
 const allTags = [
   ...new Set(blogPosts.flatMap(post => post.data.tags))
 ]
+const { origin, href } = Astro.url
 ---
 
 <Layout>
   <SEO
     slot="header"
     title="Tags | DSJIN BLOG"
+    description="All tags in my blog",
+    openGraph={{
+      basic: {
+        title: "Tags | DSJIN BLOG",
+        type: 'website',
+        image: `${origin}/default.png`,
+        url: href
+      }
+    }}
+		twitter={{
+      card: 'summary_large_image',
+      site: href,
+      creator: 'Thatchakon Jom-ud',
+      title: "Tags | DSJIN BLOG",
+      description: "All tags in my blog",
+      image: `${origin}/default.png`
+    }}
   />
   <div class="container">
     <h1>All Tags</h1>

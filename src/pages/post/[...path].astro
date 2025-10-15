@@ -40,7 +40,18 @@ export async function getStaticPaths() {
         type: 'article',
         image: blogPost?.data.coverImage ? blogPost?.data.coverImage.src : `${origin}/default.png`,
         url: href
+      },
+      article: {
+        publishedTime: blogPost?.data.createdDate.toLocaleString()
       }
+    }}
+    twitter={{
+      card: 'summary_large_image',
+      site: href,
+      creator: blogPost?.data.author.name,
+      title: `${blogPost?.data.title} | DSJIN BLOG`,
+      description: blogPost?.data.description,
+      image: blogPost?.data.coverImage ? blogPost?.data.coverImage.src : `${origin}/default.png`
     }}
   />
   <NavbarFixed title={blogPost?.data.title ?? ''} client:only />

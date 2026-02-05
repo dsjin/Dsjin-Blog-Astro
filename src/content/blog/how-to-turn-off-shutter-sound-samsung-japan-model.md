@@ -40,11 +40,11 @@ author:
 
 ก่อนอื่นให้เราทำการเช็คว่าคอมเรากับโทรศัพท์เราอยู่ในวง Network เดียวกัน แล้วให้ทำการกดที่ Pair device with paring code เพื่อทำการเชื่อมต่อโทรศัพท์ของเราเข้ากับ ADB บนเครื่อง โดยจะมี popup เป็นข้อมูล ip และ pairing code บนคอมของเราให้ใช้คำสั่ง adb pair \<ip>:\<port> เมื่อกด Enter ก็จะให้ใส่ Pairing code โดยใส่ข้อมูลตามที่ popup ได้โชว์ขึ้นมา
 
-![](</public/images/Screenshot 2026-02-05 at 22.19.49.png>)
+![](</images/pairing.png>)
 
 ต่อไปให้เรารันคำสั่ง adb shell settings put system csc\_pref\_camera\_forced\_shuttersound\_key 0 แล้วเช็คอีกทีผ่านคำสั่ง adb shell settings get system csc\_pref\_camera\_forced\_shuttersound\_key ถ้าเป็น 0 ยินดีด้วยครับ ปิดเสียงเรียบร้อยแล้ว 🎉
 
-![](</public/images/Screenshot 2026-02-05 at 22.26.44.png>)
+![](</images/adb-set-get.png>)
 
 # สุดท้ายนี้
 
